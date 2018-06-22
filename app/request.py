@@ -2,7 +2,7 @@ from app import app
 import urllib.request, json
 from .models import news
 
-Sources = news.Sources
+News = news.News
 Articles = news.Article
 
 # Getting the api key
@@ -48,7 +48,7 @@ def process_results(sources_list):
         category = sources_item.get('category')
         language = sources_item.get('language')
         country = sources_item.get('country')
-        sources_object = Sources(id, name, description, url, category, country, language)
+        sources_object = News(id, name, description, url, category, country, language)
         sources_results.append(sources_object)
 
     return sources_results
